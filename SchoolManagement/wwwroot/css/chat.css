@@ -1,0 +1,251 @@
+﻿html, body {
+    margin: 0;
+    height: 100% !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+
+
+
+.addBtn {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+    .addBtn button {
+        width: 100%;
+        font-size: 2em;
+        background-color: #ff9c07;
+    }
+
+#switchRoomBtn button{
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.chatRoomContainer {
+    margin: 20px;
+    height: 80vh;
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sideMenuContainer {
+    width: 18%;
+    height: 100%;
+    background-color: whitesmoke;
+    overflow: auto;
+}
+    .sideMenuContainer::-webkit-scrollbar {
+        width: 12px;
+    }
+    .sideMenuContainer::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+    .sideMenuContainer::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0);
+    }
+
+.roomLink {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+    .roomLink:hover {
+        background-color: #ff9c07;
+        text-decoration: none;
+    }
+
+.privateChatLink {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    color: black;
+    display: grid;
+    text-align: center;
+}
+    .privateChatLink a {
+        margin-bottom: 5px
+    }
+    .privateChatLink a:hover {
+        text-decoration: none;
+    }
+
+.chatContainer {
+    width: 100%;
+    /*    height: 500px;*/
+    background-color: #272727;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.messageContainer {
+    overflow: auto;
+}
+    .messageContainer::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    .messageContainer::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        background-color: whitesmoke;
+        border-radius: 10px;
+    }
+
+    .messageContainer::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0);
+    }
+
+.messageBox {
+    display: flex;
+}
+
+.imgContainer {
+    margin-right: 10px;
+    border-radius: 50%;
+}
+    .imgContainer img {
+        padding: 10px;
+        background-color: red;
+    }
+
+.message {
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+    background-color: #69e0fb;
+    border-radius: 20px;
+}
+    .message header {
+        width: 9%;
+        font-weight: bold;
+    }
+    .message p {
+        width: 70%;
+        margin-right: 10px;
+    }
+    .message footer{
+        font-weight: bold;
+    }
+
+.message-img {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.inputContainer {
+    padding: 20px;
+}
+    .inputContainer input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid white;
+        border-radius: 20px;
+        margin-right: 15px;
+    }
+    .inputContainer button {
+        padding: 10px;
+        border-radius: 20px;
+        width: 15%;
+    }
+
+.hide {
+    display: none;
+}
+
+.addRoom {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    height: 100%;
+    top: 0;
+    display: flex;
+    background-color: rgba(0,0,0,0.7);
+}
+    .addRoom form {
+        width: 30%;
+        margin: auto;
+        padding: 15px;
+        background-color: #a9ce4f;
+        border-radius: 8px;
+    }
+    .addRoom label {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+#closeForm {
+    font-size: 1.7em;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.bars {
+    display: none;
+}
+
+
+@media only screen and (max-height : 855px){
+    .chatRoomContainer {
+        height: 75vh;
+    }
+}
+@media only screen and (max-height : 530px) {
+    .chatRoomContainer {
+        height: 70vh;
+    }
+}
+
+/*test*/
+@media only screen and (max-width:1300px){
+    .message{
+        display:block;
+    }
+}
+
+@media only screen and (max-width : 1000px){
+    .bars {
+        display: initial;
+        font-size: 2.2em;
+        cursor: pointer;
+    }
+    .sideMenuContainer {
+        background-color: white;
+        height: 0;
+        overflow: auto;
+        width: 100%;
+    }
+    .addRoom form {
+        width: 60%;
+    }
+    .chatRoomContainer {
+        display: block;
+    }
+    .chatContainer {
+        height: 90%;
+    }
+    /*.message {
+        display: block;
+    }*/
+    .message p {
+        width: 90%;
+        padding-left: 10px;
+    }
+    .chatRoomContainer {
+        box-shadow: none;
+    }
+}
+

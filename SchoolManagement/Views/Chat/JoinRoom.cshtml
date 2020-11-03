@@ -1,0 +1,63 @@
+﻿@model SchoolManagement.Services.ViewModels.Chat.JoinRoomViewModel
+
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/chat.css" />
+    <link rel="stylesheet" href="~/lib/Hover-master/css/hover.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+}
+<partial name="./Partials/_CreateRoomForm" />
+
+<div class="chatRoomContainer">
+
+    <div class="bars" onclick="toggleSideMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="sideMenuContainer" id="sideMenu">
+        <div class="roomName">
+            <div class="addBtn">
+                <button class="btn" onclick="toggleForm()"><strong>+</strong></button>
+            </div>
+
+            <div class="addBtn" id="switchRoomBtn">
+                <button class="btn" onclick="switchRooms(event)">Enter @Model.ChatType rooms</button>
+            </div>
+
+            <partial name="./Partials/_ChatRooms" for="@Model" />
+        </div>
+    </div>
+
+    <div class="chatContainer">
+        <div class="messageContainer" id="chat">
+            @foreach (var message in Model.Chatrooms.FirstOrDefault(x => x.Id == Model.ChatroomId).Messages)
+            {
+                <div class="message">
+                <img src="data:image/jpeg;base64,@Convert.ToBase64String(message.UserImage)" class="message-img" />
+                    <header>@message.CreatedBy:</header>
+                    <p>@message.Text</p>
+                    <footer>@message.DatePosted.ToString("MMMM-dd, hh:mm tt")</footer>
+                </div>
+            }
+        </div>
+
+
+        <div class="inputContainer">
+            <form method="post" onsubmit="sendMessage(event)">
+                <input hidden name="chatroomId" value="@Model.ChatroomId" id="chatroomId" />
+                <input hidden name="chatroomName" value="@Model.Chatrooms.FirstOrDefault(x => x.Id == Model.ChatroomId).Name" id="chatroomName" />
+                <input name="text" placeholder="Write something to @Model.Chatrooms.FirstOrDefault(x => x.Id == Model.ChatroomId).Name room..." id="inputText" />
+                <button type="submit" class="btn btn-success">Send</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/lib/Axios/axios.js"></script>
+    <script src="~/lib/SignalR/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
+    <script src="https://kit.fontawesome.com/15dcd5d68f.js" crossorigin="anonymous"></script>
+    <script src="~/js/chatConnection.js"></script>
+}

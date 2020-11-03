@@ -1,0 +1,48 @@
+﻿.customNav{
+    background-color: #14213D !important;
+}
+
+.customContainer{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbarNav {
+    justify-content: flex-end;
+    margin-right: 150px;
+}
+
+.navbar .navbar-brand {
+    margin-left: 130px;
+}
+
+/*.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;*/
+    /* Set the fixed height of the footer here */
+    /*height: 60px;
+}
+    .footer div{
+        margin-top: 20px;
+    }*/
+.nav-item img {
+    border-radius: 100%;
+    margin-left: 15%;
+}
+
+@media only screen and (max-width : 991px) {
+    .navbar .navbar-brand {
+        margin-left: 20px;
+    }
+}
+@media only screen and (max-width : 768px){
+    .nav-item img {
+        border-radius: 100%;
+        margin-left: 0;
+        margin-top: 2%;
+    }
+}
